@@ -9,6 +9,21 @@ async def start(_, m: Message):
     await m.reply(f'Hi {m.from_user.mention(style="md")}, Send me a file to get Download stream link. \n\nIf You Want Help Press /help',
                 
                   )
+    return
+        except UserNotParticipant:
+             await StreamBot.send_photo(
+                chat_id=m.chat.id,
+                photo="https://graph.org/file/ce0b11356141116fd8117.jpg",
+                caption="<i>𝙹𝙾𝙸𝙽 CHANNEL 𝚃𝙾 𝚄𝚂𝙴 𝙼𝙴🔐</i>",
+                reply_markup=InlineKeyboardMarkup(
+                    [
+                        [
+                            InlineKeyboardButton("Jᴏɪɴ ɴᴏᴡ 🔓", url=f"https://t.me/{Var.UPDATES_CHANNEL}")
+                        ]
+                    ]
+                ),
+                
+            )
 
 @StreamBot.on_message(filters.command(['help']))
 async def help(_, m: Message):
